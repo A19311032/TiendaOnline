@@ -20,7 +20,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the application dashboa
+     * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
