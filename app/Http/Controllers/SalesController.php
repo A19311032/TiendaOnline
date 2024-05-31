@@ -7,7 +7,7 @@ use App\Models\Sale;
 use App\Models\Detail;
 use App\Models\Notification;
 use App\Models\User;
-use App\Models\Product;
+use App\Models\Product;,
 
 class SalesController extends Controller
 {
