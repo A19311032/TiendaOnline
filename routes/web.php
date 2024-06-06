@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\IndexCatalogosController;
@@ -24,13 +25,14 @@ Route::group(['middleware' => ['role:Administrador']], function () {
     Route::get('/usuarios/nuevo', [UsuariosController::class, 'mostrarFormulario'])->name('usuarios.create');
     Route::post('/usuarios/nuevo', [UsuariosController::class, 'crearUsuario'])->name('usuarios.store');
 
-    Route::get('/ventas', [VentasController::class, 'index'])->name('ventas.index');
-    Route::get('/ventas/create', [VentasController::class, 'mostrarFormulario'])->name('ventas.create');
-    Route::post('/ventas', [VentasController::class, 'crearVenta'])->name('ventas.store');
-    Route::get('/ventas/{id}/edit', [VentasController::class, 'edit'])->name('ventas.edit');
-    Route::put('/ventas/{id}', [VentasController::class, 'update'])->name('ventas.update');
-    Route::get('/ventas/buscar', [VentasController::class, 'buscar'])->name('ventas.buscar');
-    Route::delete('/ventas/{id}', [VentasController::class, 'eliminar'])->name('ventas.eliminar');
+    Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
+    Route::get('/productos/create', [ProductosController::class, 'mostrarFormulario'])->name('productos.create');
+    Route::post('/productos', [ProductosController::class, 'crearVenta'])->name('productos.store');
+    Route::get('/productos/{id}/edit', [ProductosController::class, 'edit'])->name('productos.edit');
+    Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('productos.update');
+    Route::get('/productos/buscar', [ProductosController::class, 'buscar'])->name('productos.buscar');
+    Route::delete('/productos/{id}', [ProductosController::class, 'eliminar'])->name('productos.eliminar');
+
 
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);

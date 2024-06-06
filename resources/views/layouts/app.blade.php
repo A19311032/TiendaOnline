@@ -62,15 +62,11 @@
                         @auth
                             <!-- Mostrar todos los elementos del menú solo cuando el usuario ha iniciado sesión -->
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('productos.index') }}"><span class="material-symbols-outlined indice">calendar_month</span>Productos</a>
                             </li>
                             @if(auth()->user() && (auth()->user()->hasRole('Administrador') ))
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="material-symbols-outlined indice">clinical_notes</span>Sneakers</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ route('ventas.index') }}"><span class="material-symbols-outlined sub">calendar_month</span>Ventas</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="{{ route('usuarios.index') }}"><span class="material-symbols-outlined sub">group</span>Usuarios</a></li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('usuarios.index') }}"><span class="material-symbols-outlined indice">group</span>Usuarios</a>
                                 </li>
                             @endif
                         @endauth
@@ -90,8 +86,8 @@
                                     <li class="nav-item"  style="margin-right: 10px">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer; color:#992323"  style="font-size: 100%">
-                                                <span class="material-symbols-outlined indice" style="color:#992323">logout</span>
+                                            <button type="submit" class="nav-link" style="background: #4E73DE;"  style="font-size: 100%">
+                                                <span class="material-symbols-outlined indice" style="color: #FFFFFF">logout</span>
                                                 Cerrar Sesión
                                             </button>
                                         </form>
@@ -112,3 +108,4 @@
 </body>
 
 </html>
+
