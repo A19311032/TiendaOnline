@@ -24,8 +24,7 @@
                     <form method="POST" action="{{ route('perfil.update') }}">
                         @csrf
                         @method('POST')
-<!--hola-->
-<!--prueba-->
+
                         <div class="form-group">
                             <label for="phone">Teléfono</label>
                             <input type="text" name="phone" value="{{ $user->phone }}" class="form-control">
