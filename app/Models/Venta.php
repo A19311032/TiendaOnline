@@ -8,16 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Venta extends Model
 {
     use HasFactory;
+    protected $table = 'ventas'; // Nombre de la tabla en la base de datos
 
     protected $fillable = [
-        'marca',
-        'silueta',
-        'modelo',
-        'talla',
-        'estado',
-        'condicion',
+        'producto_id',
         'cantidad',
-        'descripcion',
-        'precio',
     ];
+
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
 }

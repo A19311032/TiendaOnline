@@ -111,7 +111,6 @@
     width: 100px; 
     height: auto; 
 }
-
 </style>
 
 <div class="container mt-4">
@@ -119,20 +118,20 @@
     <div class="col-12">
       <div class="icon-text">
         <span class="material-symbols-outlined sub">group</span>
-        <span class="productos-title">Productos</span>
+        <span class="ventas-title">Ventas</span>
       </div>
-      <p class="header-title">Listado de Productos</p>
-      <p class="sub-text">A continuación se muestra el listado de todos los productos registrados</p>
+      <p class="header-title">Listado de Ventas</p>
+      <p class="sub-text">A continuación se muestra el historial de ventas</p>
       
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Buscar productos..." aria-label="Buscar productos">
+        <input type="text" class="form-control" placeholder="Buscar ventas..." aria-label="Buscar ventas">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary search-button" type="button" id="button-addon2">Buscar</button>
         </div>
       </div> 
 
       <a href="{{ route('ventas.create') }}" class="btn btn-success">
-        <span class="material-symbols-outlined">add</span> Nuevo Producto
+        <span class="material-symbols-outlined">add</span> Nueva Venta
       </a>
       <br>
       <br>
@@ -140,34 +139,18 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th class="imagen">Imagen</th>
-            <th>Descripcion</th>
-            <th>Talla</th>
-            <th>Precio</th>
+            <th>Producto</th>
             <th>Cantidad</th>
-            <th>Estado</th>
-
-            <th class="action-cell">Acción</th> 
+            <th>Fecha de Venta</th>
           </tr>
         </thead>
         <tbody>
           @foreach($ventas as $venta)
             <tr>
-              <th>{{ $venta->id }}</th>
-              <td class="imagen"><img src="{{ asset('images/' . $venta->imagen) }}" alt="Imagen de venta"></td>
-              <td>{{ $venta->descripcion }}</td>
-              <td>{{ $venta->talla }}</td>
-              <td>{{ $venta->precio }}</td>
-              <td>{{ $venta->cantidad }}</td>  
-              <td>{{ $venta->estado }}</td>  
-              <td class="action-cell"> <!-- Aplicar la clase a la celda de acción -->
-                  <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                  <form action="{{ route('ventas.eliminar', $venta->id) }}" method="POST" style="display:inline;">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de querer eliminar esta venta?')">Eliminar</button>
-                  </form>
-              </td>                      
+              <td>{{ $venta->id }}</td>
+              <td>{{ $venta->producto->descripcion }}</td>
+              <td>{{ $venta->cantidad }}</td>
+              <td>{{ $venta->created_at }}</td>
             </tr>
           @endforeach
         </tbody>
