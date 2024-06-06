@@ -11,13 +11,13 @@
         display: flex;
         align-items: center;
         font-size: 24px; /* Se aumenta el tamaño para una mejor lectura */
-        color: #4A90E2; /* Un color azul moderno para los iconos y el texto */
+        color: #ffffff; /* Un color azul moderno para los iconos y el texto */
         margin-bottom: 10px;
     }
     .icon-text .material-symbols-outlined {
         font-size: 30px; /* Se aumenta el tamaño de los íconos para que coincidan con el texto */
         margin-right: 10px;
-        color: #AD1B1A;
+        color: #000000;
     }
     .card {
         background-color: white;
@@ -98,14 +98,18 @@
                         <p id="hora_actual"></p>
                     </div>
                 </div>
-                <p>Bienvenid@ a SneakerHMO.</p>
+                <p>Bienvenid@ a Surtido Feliz.</p>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
-                <p style="font-size: 20px; color: #000000">Nueva Mercancia:</p>
-
-
+                <p style="font-size: 20px; color: #000000">Nuevos Productos:</p>
+                <p style="font-size: 18px;"><strong>Calzado:</strong></p>
+                <li>Jordan 1 Retro Low OG SP Travis Scott Mocha</li>
+                <li>Jordan 1 Retro Low OG SP Travis Scott Black Phantom</li>
+                <li>Jordan 1 Retro Low OG SP Travis Scott Canary (Women's)</li>
+                <li>Nike Dunk Low Cacao Wow (Women's)</li>
+                <p></p>
             </div>
         </div>
     </div>

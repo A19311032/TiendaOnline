@@ -35,7 +35,7 @@
 
     <div class="container" >
     <div class="row justify-content-center">
-        <div class="col-md-4" style="margin-top: 50px">
+        <div class="col-md-6" style="margin-top: 50px">
             <div class="card" stlye="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
                 <div class="container" style="text-align: center; padding: 10px; background-color: #4E73DE; border-radius: 10px 10px 0 0"><img src="{{ asset('/images/surfel_bg.png') }}" style="width: 90px"></div>   
                 <div class="card-body" style="text-align: center;">

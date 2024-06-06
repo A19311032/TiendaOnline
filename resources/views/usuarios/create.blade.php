@@ -33,6 +33,10 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
+                        <label for="email">Correo:</label>
+                        <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
+                    </div>
+                    <div class="col-4">
                         <label for="celular">Celular:</label>
                         <input type="text" name="celular" class="form-control" id="celular" style="text-transform: uppercase;">
                     </div>
@@ -43,6 +47,8 @@
                             <option value="Inactivo">Inactivo</option>
                         </select>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-4">
                         <label for="rol">Rol:</label>
                         <select name="rol" class="form-control" id="rol">
@@ -50,6 +56,10 @@
                                 <option value="{{ $role->name }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" class="form-control" id="password" required>
                     </div>
                 </div>
                 <br>
