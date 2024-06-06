@@ -14,22 +14,31 @@
             background: none;
         }
         hr {
-            border: 2px solid #992323;
+            border: 2px solid #4E73DE;
             margin-top: 0px; 
             margin-bottom: 20px; 
         }
         .btn-custom-color {
-            background-color: #a43227; 
+            background-color: #4E73DE; 
             color: white;
+        }
+        .card{
+            background-color: #fff;
+            width: 100%;
+            border: 0px ;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            margin-bottom: 10px;
+            
         }
     </style>
     <!---Fin de Style--->
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card" style="text-align: center; background-color: white; border-radius: 10px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border: 0px; margin-top: 30px">
-                    <div class="card-body">
+    <div class="container" >
+    <div class="row justify-content-center">
+        <div class="col-md-4" style="margin-top: 50px">
+            <div class="card" stlye="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                <div class="container" style="text-align: center; padding: 10px; background-color: #4E73DE; border-radius: 10px 10px 0 0"><img src="{{ asset('/images/surfel_bg.png') }}" style="width: 90px"></div>   
+                <div class="card-body" style="text-align: center;">
                         <h3 class="card-header text-center no-bg">Iniciar Sesion</h3>
                         <!-- Session Status -->
 

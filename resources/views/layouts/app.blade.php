@@ -53,7 +53,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #4E73DE !important; border-bottom: 3px solid #7960F7; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="{{ asset('images/surfel.jpg') }}" style="width: 80px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('images/surfel_bg.png') }}" style="width: 80px" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
