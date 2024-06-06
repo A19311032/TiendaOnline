@@ -118,7 +118,7 @@
     <div class="col-12">
       <div class="icon-text">
         <span class="material-symbols-outlined sub">group</span>
-        <span class="ventas-title">Ventas</span>
+        <span class="ventas-title" style="color: black;">Ventas</span>
       </div>
       <p class="header-title">Listado de Ventas</p>
       <p class="sub-text">A continuación se muestra el historial de ventas</p>
