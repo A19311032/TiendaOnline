@@ -9,30 +9,13 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Hash;
-use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class UsuariosController extends Controller
 {
     public function index(Request $request)
     {
         $users = User::orderBy('id', 'desc')->paginate(20);
-
-        // Obtener los datos de usuarios registrados por fecha
-        $userRegistrations = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DATE(created_at) as date"))
-                                  ->groupBy('date')
-                                  ->get();
-
-        // Crear el gráfico
-        $chart = (new LarapexChart)->lineChart()
-            ->setTitle('Usuarios Registrados')
-            ->setXAxis($userRegistrations->pluck('date')->toArray())
-            ->addData('Usuarios', $userRegistrations->pluck('count')->toArray())
-            ->setColors(['#FF5733'])
-            ->setMarkers(['#FF5733'], 7, 10)
-            ->setGrid();
-
-        return view('usuarios.index', compact('users', 'chart'));
+        return view('usuarios.index', compact('users'));
     }
 
     public function edit($id)
@@ -55,37 +38,32 @@ class UsuariosController extends Controller
 
     public function crearUsuario(Request $request)
     {
+
+        $messages = [
+            'name.required' => 'El campo Nombres es obligatorio.',
+            'apellido_paterno.required' => 'El campo Apellido Paterno es obligatorio.',
+            'apellido_materno.required' => 'El campo Apellido Materno es obligatorio.',
+            // ... puedes agregar más mensajes personalizados aquí
+        ];
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email',
             'celular' => 'nullable|string|max:10',
             'estatus' => 'nullable|in:Activo,Inactivo',
-            'rol' => 'required|string',
-            'password' => 'required|string|min:8' // Asegúrate de validar la contraseña
-        ]);
-    
+        ], $messages);
+
+        // Creación del usuario
         $user = new User; 
         $user->name = $request->name;
         $user->apellido_paterno = $request->apellido_paterno;
         $user->apellido_materno = $request->apellido_materno;
-        $user->email = $request->email;
         $user->celular = $request->celular;
-        $user->estatus = $request->estatus;
         $user->empresa = $request->empresa;
-        $user->password = Hash::make($request->password); // Hashea la contraseña
-    
-        // Guarda el usuario
-        $user->save();
-    
-        // Asigna el rol al usuario
-        $user->assignRole($request->rol);
-    
-        // Envía un correo electrónico al nuevo usuario (necesitas configurar esto)
-        // Mail::to($user->email)->send(new UserMail($user));
-    
-        // Redirige con un mensaje de éxito
+        $user->estatus = $request->estatus;
+       
+        // Redirección con mensaje de éxito
         return redirect()->route('usuarios.index')->with('success', 'Usuario creado con éxito y se ha enviado un correo con detalles de inicio de sesión.');
     }
 
@@ -96,7 +74,6 @@ class UsuariosController extends Controller
             'name' => 'required|max:255',
             'apellido_paterno' => 'required|max:255',
             'apellido_materno' => 'required|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email',
             'celular' => 'required|max:20',
             'empresa' => 'max:255',
             'estatus' => 'required|in:Activo,Inactivo',
@@ -115,7 +92,6 @@ class UsuariosController extends Controller
             'name' => $request->name,
             'apellido_paterno' => $request->apellido_paterno,
             'apellido_materno' => $request->apellido_materno,
-            'email' => $request->email,
             'celular' => $request->celular,
             'empresa' => $request->empresa,
             'estatus' => $request->estatus,
