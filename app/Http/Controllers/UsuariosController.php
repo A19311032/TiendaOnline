@@ -10,13 +10,29 @@ use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class UsuariosController extends Controller
 {
     public function index(Request $request)
     {
         $users = User::orderBy('id', 'desc')->paginate(20);
-        return view('usuarios.index', compact('users'));
+
+        // Obtener los datos de usuarios registrados por fecha
+        $userRegistrations = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DATE(created_at) as date"))
+                                  ->groupBy('date')
+                                  ->get();
+
+        // Crear el gráfico
+        $chart = (new LarapexChart)->lineChart()
+            ->setTitle('Usuarios Registrados')
+            ->setXAxis($userRegistrations->pluck('date')->toArray())
+            ->addData('Usuarios', $userRegistrations->pluck('count')->toArray())
+            ->setColors(['#FF5733'])
+            ->setMarkers(['#FF5733'], 7, 10)
+            ->setGrid();
+
+        return view('usuarios.index', compact('users', 'chart'));
     }
 
     public function edit($id)
