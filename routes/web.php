@@ -27,13 +27,11 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 
     Route::get('/ventas', [VentasController::class, 'index'])->name('ventas.index');
     Route::get('/ventas/create', [VentasController::class, 'mostrarFormulario'])->name('ventas.create');
-    Route::post('/ventas', [VentasController::class, 'crearVenta'])->name('ventas.store');
+    Route::post('/ventas', [VentasController::class, 'registrarVenta'])->name('ventas.registrar');
     Route::get('/ventas/{id}/edit', [VentasController::class, 'edit'])->name('ventas.edit');
     Route::put('/ventas/{id}', [VentasController::class, 'update'])->name('ventas.update');
-    Route::get('/ventas/buscar', [VentasController::class, 'buscar'])->name('ventas.buscar');
     Route::delete('/ventas/{id}', [VentasController::class, 'eliminar'])->name('ventas.eliminar');
-    Route::get('/ventas', [VentasController::class, 'index'])->name('ventas.index');
-    Route::post('/ventas/registrar', [VentasController::class, 'registrar'])->name('ventas.registrar');
+    
     
     Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
     Route::get('/productos/create', [ProductosController::class, 'mostrarFormulario'])->name('productos.create');
