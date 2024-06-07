@@ -32,7 +32,7 @@
             background-color: #F8F9FD;
         }
         .sub{
-            color: #000000;
+            color: #FFFFFF;
             font-size: 120%;
             vertical-align: middle;
             margin-right: 10px;
@@ -53,7 +53,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #4E73DE !important; border-bottom: 3px solid #7960F7; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="{{ asset('images/surfel_bg.png') }}" style="width: 80px" alt="Logo"></a>
+                <a class="navbar-brand" href="inicio"><img src="{{ asset('images/surfel_bg.png') }}" style="width: 80px" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -62,11 +62,14 @@
                         @auth
                             <!-- Mostrar todos los elementos del menú solo cuando el usuario ha iniciado sesión -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ventas.index') }}"><span class="material-symbols-outlined indice">calendar_month</span>Ventas</a>
+                                <a class="nav-link" href="{{ route('inicio') }}"><span class="material-symbols-outlined indice">home</span>Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('ventas.index') }}"><span class="material-symbols-outlined indice">sell</span>Ventas</a>
                             </li>
                             @if(auth()->user() && (auth()->user()->hasRole('Administrador') ))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('productos.index') }}"><span class="material-symbols-outlined indice">calendar_month</span>Productos</a>
+                                    <a class="nav-link" href="{{ route('productos.index') }}"><span class="material-symbols-outlined indice">inventory_2</span>Productos</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('usuarios.index') }}"><span class="material-symbols-outlined indice">group</span>Usuarios</a>
@@ -89,8 +92,8 @@
                                     <li class="nav-item"  style="margin-right: 10px">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button type="submit" class="nav-link" style="background: #4E73DE;"  style="font-size: 100%">
-                                                <span class="material-symbols-outlined indice" style="color: #FFFFFF">logout</span>
+                                            <button type="submit" class="nav-link" style="background: #fffff; font-size: 100%; color: #4E73DE;">
+                                                <span class="material-symbols-outlined indice" style="color: #4E73DE">logout</span>
                                                 Cerrar Sesión
                                             </button>
                                         </form>

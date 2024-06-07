@@ -131,7 +131,7 @@
       </div> 
 
       <a href="{{ route('ventas.create') }}" class="btn btn-success">
-        <span class="material-symbols-outlined">add</span> Nueva Venta
+        Nueva Venta
       </a>
       <br>
       <br>
