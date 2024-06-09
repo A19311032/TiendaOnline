@@ -77,6 +77,7 @@
                             @endif
                         @endauth
                     </ul>
+                    
                     @auth
                         <!-- Añade el botón "Cerrar Sesión" alineado a la derecha -->
                         <a class="navbar-brand" href="#"></a>
